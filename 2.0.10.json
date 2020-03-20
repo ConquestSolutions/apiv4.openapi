@@ -277,7 +277,7 @@
     },
     "/api/assets/create_action": {
       "post": {
-        "operationId": "CreateAction",
+        "operationId": "CreateActionForAsset",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -331,7 +331,7 @@
     },
     "/api/assets/create_defect": {
       "post": {
-        "operationId": "CreateDefect",
+        "operationId": "CreateDefectForAsset",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -540,7 +540,7 @@
     },
     "/api/defects/create_action": {
       "post": {
-        "operationId": "CreateAction",
+        "operationId": "CreateActionForDefect",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -643,32 +643,6 @@
         ]
       }
     },
-    "/api/documents/add_diary": {
-      "post": {
-        "operationId": "AddDiary",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiAddDiaryResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiAddDiaryCommand"
-            }
-          }
-        ],
-        "tags": [
-          "DocumentService"
-        ]
-      }
-    },
     "/api/documents/add_document": {
       "post": {
         "operationId": "AddDocument",
@@ -687,58 +661,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/conquest_apiAddDocumentCommand"
-            }
-          }
-        ],
-        "tags": [
-          "DocumentService"
-        ]
-      }
-    },
-    "/api/documents/change_diary_content": {
-      "post": {
-        "operationId": "ChangeDiaryContent",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiAddDiaryResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiChangeDiaryContentCommand"
-            }
-          }
-        ],
-        "tags": [
-          "DocumentService"
-        ]
-      }
-    },
-    "/api/documents/change_document_content": {
-      "post": {
-        "operationId": "ChangeDocumentContent",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiAddDocumentResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiChangeDocumentContentCommand"
             }
           }
         ],
@@ -791,32 +713,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/conquest_apiGetDocumentsQuery"
-            }
-          }
-        ],
-        "tags": [
-          "DocumentService"
-        ]
-      }
-    },
-    "/api/documents/list_locations": {
-      "post": {
-        "operationId": "ListDocumentLocations",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiListDocumentLocationsResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiListDocumentLocationsQuery"
             }
           }
         ],
@@ -1007,32 +903,6 @@
         ]
       }
     },
-    "/api/knowledge_base/list_standard_actions": {
-      "post": {
-        "operationId": "ListStandardActions",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiListStandardActionsResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiListStandardActionsQuery"
-            }
-          }
-        ],
-        "tags": [
-          "KnowledgeBaseService"
-        ]
-      }
-    },
     "/api/knowledge_base/list_standard_defect_responses": {
       "post": {
         "operationId": "ListStandardDefectResponses",
@@ -1134,84 +1004,6 @@
         ],
         "tags": [
           "ViewService"
-        ]
-      }
-    },
-    "/api/profile/history_items": {
-      "post": {
-        "operationId": "GetHistoryItems",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiGetHistoryItemsResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiGetHistoryItemsQuery"
-            }
-          }
-        ],
-        "tags": [
-          "ProfileService"
-        ]
-      }
-    },
-    "/api/profile/preferences": {
-      "post": {
-        "operationId": "GetUserPreferences",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiGetUserPreferencesResult"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiGetUserPreferencesQuery"
-            }
-          }
-        ],
-        "tags": [
-          "ProfileService"
-        ]
-      }
-    },
-    "/api/profile/update_preferences": {
-      "post": {
-        "operationId": "UpdateUserPreferences",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiUpdateUserPreferencesCommand"
-            }
-          }
-        ],
-        "tags": [
-          "ProfileService"
         ]
       }
     },
@@ -1320,108 +1112,6 @@
         ]
       }
     },
-    "/api/security/account_permissions": {
-      "post": {
-        "operationId": "GetAccountPermissions",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiAccountPermissions"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiGetAccountPermissionsQuery"
-            }
-          }
-        ],
-        "tags": [
-          "SecurityService"
-        ]
-      }
-    },
-    "/api/security/permissions_for_object": {
-      "post": {
-        "operationId": "PermissionsForObject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiEffectivePermission"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiPermissionsForObjectQuery"
-            }
-          }
-        ],
-        "tags": [
-          "SecurityService"
-        ]
-      }
-    },
-    "/api/security/set_permissions": {
-      "post": {
-        "operationId": "SetPermissions",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/conquest_apiSetPermissionsCommand"
-            }
-          }
-        ],
-        "tags": [
-          "SecurityService"
-        ]
-      }
-    },
-    "/api/system/connections": {
-      "get": {
-        "operationId": "DatabaseConnections",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiDatabaseConnectionNamesResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "Dummy",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "SystemService"
-        ]
-      }
-    },
     "/api/system/version": {
       "get": {
         "operationId": "ApplicationVersion",
@@ -1430,22 +1120,6 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/conquest_apiSystemVersionResponse"
-            }
-          }
-        },
-        "tags": [
-          "SystemService"
-        ]
-      }
-    },
-    "/api/system/whoami": {
-      "get": {
-        "operationId": "WhoAmI",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/conquest_apiWhoAmIResponse"
             }
           }
         },
@@ -2317,22 +1991,6 @@
         "ActionType_Unknown"
       ],
       "default": "ActionType_Unscheduled"
-    },
-    "conquest_apiAddDiaryCommand": {
-      "type": "object",
-      "properties": {
-        "ObjectKey": {
-          "$ref": "#/definitions/conquest_apiObjectKey"
-        },
-        "CreateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "CreateTime is unique. When adding a document, there is no DocumentID yet, the CreateTime should be used as a key until the DocumentID is retrieved."
-        },
-        "Content": {
-          "type": "string"
-        }
-      }
     },
     "conquest_apiAddDiaryResult": {
       "type": "object",
@@ -4404,61 +4062,6 @@
         }
       }
     },
-    "conquest_apiChangeDiaryContentCommand": {
-      "type": "object",
-      "properties": {
-        "ObjectKey": {
-          "$ref": "#/definitions/conquest_apiObjectKey"
-        },
-        "DocumentID": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Content": {
-          "type": "string"
-        }
-      }
-    },
-    "conquest_apiChangeDocumentContentCommand": {
-      "type": "object",
-      "properties": {
-        "ObjectKey": {
-          "$ref": "#/definitions/conquest_apiObjectKey"
-        },
-        "DocumentID": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "LinkExistingDocument": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "Address": {
-          "type": "string",
-          "title": "See AddDocumentCommand.Address"
-        },
-        "ContentType": {
-          "type": "string"
-        },
-        "UpdateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "UpdateTime when provided by the device can be used as a key, because a DocumentID is not yet present."
-        },
-        "Hashes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "A list of calculated hashes / checksum of the file to be uploaded."
-        },
-        "ContentLength": {
-          "type": "string",
-          "format": "int64",
-          "title": "ContentLength in bytes"
-        }
-      }
-    },
     "conquest_apiChangeSetResult": {
       "type": "object",
       "properties": {
@@ -5998,18 +5601,6 @@
         }
       }
     },
-    "conquest_apiGetAccountPermissionsQuery": {
-      "type": "object",
-      "properties": {
-        "AccountID": {
-          "$ref": "#/definitions/conquest_apiAccountID"
-        },
-        "IncludeTypePermissions": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
-    },
     "conquest_apiGetActionCompletionDetailsRequest": {
       "type": "object",
       "properties": {
@@ -6146,25 +5737,6 @@
         }
       }
     },
-    "conquest_apiGetHistoryItemsQuery": {
-      "type": "object",
-      "properties": {
-        "ItemTypes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "RecentlyViewed": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "Favourites": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
-    },
     "conquest_apiGetHistoryItemsResult": {
       "type": "object",
       "properties": {
@@ -6214,20 +5786,6 @@
       "properties": {
         "UploadToken": {
           "$ref": "#/definitions/conquest_apiUploadToken"
-        }
-      }
-    },
-    "conquest_apiGetUserPreferencesQuery": {
-      "type": "object",
-      "properties": {
-        "Keys": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "Prefix": {
-          "type": "string"
         }
       }
     },
@@ -6498,9 +6056,6 @@
       },
       "title": "AttributeSets can be queried using a number of different objects types.\nThe AttributeSet that will be returned is the one that relates to the ObjectKey"
     },
-    "conquest_apiListDocumentLocationsQuery": {
-      "type": "object"
-    },
     "conquest_apiListDocumentLocationsResponse": {
       "type": "object",
       "properties": {
@@ -6568,22 +6123,6 @@
       },
       "description": "WARNING: IMPLEMENTATION INCOMPLETE (API 2.0.5)\n  Some endpoints may ignore the parameters below and return more data. DO NOT ASSUME IT WILL STAY THIS WAY.\n  Your code should always set the parameters below and assume the expected, not the actual data they currently return.",
       "title": "ListHierarchyNodesQuery gets a list of Hierarchy nodes (ObjectHeaders whose parent ObjectType is the same as the object's ObjectType"
-    },
-    "conquest_apiListStandardActionsQuery": {
-      "type": "object",
-      "properties": {
-        "StdActionIDs": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "RequestAction": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
     },
     "conquest_apiListStandardActionsResult": {
       "type": "object",
@@ -6932,17 +6471,6 @@
       ],
       "default": "Permission_NotSet"
     },
-    "conquest_apiPermissionsForObjectQuery": {
-      "type": "object",
-      "properties": {
-        "AccountID": {
-          "$ref": "#/definitions/conquest_apiAccountID"
-        },
-        "ObjectKey": {
-          "$ref": "#/definitions/conquest_apiObjectKey"
-        }
-      }
-    },
     "conquest_apiPredefinedContextCriteria": {
       "type": "object",
       "properties": {
@@ -7263,32 +6791,6 @@
         }
       }
     },
-    "conquest_apiSetPermissionsCommand": {
-      "type": "object",
-      "properties": {
-        "AccountID": {
-          "$ref": "#/definitions/conquest_apiAccountID"
-        },
-        "EffectivePermission": {
-          "$ref": "#/definitions/conquest_apiPermission"
-        },
-        "FacilityPermission": {
-          "$ref": "#/definitions/conquest_apiFacilityPermission"
-        },
-        "ObjectPermisions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/conquest_apiObjectPermission"
-          }
-        },
-        "TypePermisions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/conquest_apiObjectPermission"
-          }
-        }
-      }
-    },
     "conquest_apiSimpleActionCompletionProcess": {
       "type": "object",
       "properties": {
@@ -7460,17 +6962,6 @@
       "properties": {
         "value": {
           "$ref": "#/definitions/conquest_apiUUID"
-        }
-      }
-    },
-    "conquest_apiUpdateUserPreferencesCommand": {
-      "type": "object",
-      "properties": {
-        "Preferences": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/conquest_apiUserPreference"
-          }
         }
       }
     },
