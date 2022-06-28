@@ -6383,7 +6383,8 @@
         "timestampValue": {
           "description": "Choose one of 'int32Value', 'stringValue' and 'timestampValue'.\n\nTimestamp as an id is typically used to reference a new object that does not yet have an id.\n\nNOTE: Although 'oneof' should mean JSON clients do not serialize this if it's not set.\n      Unfortunately, this is not always the case, so please make sure you JSON client\n      doesn't serialize this when not set.",
           "format": "date-time",
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         }
       },
       "type": "object"
@@ -9183,6 +9184,81 @@
         "summary": "Find will select all the provided FieldNames for a given Context",
         "tags": [
           "ViewService"
+        ]
+      }
+    },
+    "/api/geo/add_geo_package": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "operationId": "GeoService_AddGeoPackage",
+        "parameters": [
+          {
+            "description": "A GeoPackage file (sqlite with the geopackage schema, .gpkg)",
+            "in": "formData",
+            "name": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "GeoService"
+        ]
+      }
+    },
+    "/api/import/add/{ImportType}": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "operationId": "CsvImportService_AddCsvImport",
+        "parameters": [
+          {
+            "description": "Action, Asset, Defect, Request, AssetInspection, RiskEvent, LogBook",
+            "in": "path",
+            "name": "ImportType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "CSV file data",
+            "in": "formData",
+            "name": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "CsvImportService"
         ]
       }
     },
